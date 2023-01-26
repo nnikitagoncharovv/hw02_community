@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+
 class Group(models.Model):
     """Модель для групп."""
 
@@ -24,6 +25,7 @@ class Group(models.Model):
     def __str__(self):
         return self.title
 
+
 class Post(models.Model):
     """Модель для постов"""
 
@@ -31,7 +33,7 @@ class Post(models.Model):
         verbose_name='Текст')
     pub_date = models.DateTimeField(
         auto_now_add=True,
-        verbose_name = 'Дата публикации')
+        verbose_name='Дата публикации')
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
