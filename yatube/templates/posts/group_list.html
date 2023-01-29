@@ -2,29 +2,27 @@
 
 {% block title %}
 
-<title>Лев Толстой – зеркало русской революции.</title>
+Лучшие посты аристократов русской литературы
 
 {% endblock%}
 
-{% block content %}
-<div class="container py-5"> 
-<h2>{{ text }}</h2>
-<article>
-<p>{{group.description }}</p>
+{% block content %} 
+  <h2> Записи сообщества </h2>
+  <p>{{ group.description }}</p>
 {% for post in posts %}
-<ul>
-  <li>
-Автор: {{ post.author.get_full_name }}
-  </li>
-  <li>
-Дата публикации: {{ post.pub_date|date:'d E Y' }}
-  </li>
-</ul>
-  <p>{{ post.text }}</p>    
+  <article>
+    <ul>
+      <li>
+        Автор: {{ post.author.get_full_name }}
+      </li>
+      <li>
+        Дата публикации: {{ post.pub_date|date:'d E Y' }}
+      </li>
+    </ul>
+    <p>{{ post.text|linebreaksbr }}</p>
+  </article>  
 {% if not forloop.last %}
-<hr>
+  <hr>
 {% endif %}
-
 {% endfor %}
-
 {% endblock %}
