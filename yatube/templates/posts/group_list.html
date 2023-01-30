@@ -2,27 +2,12 @@
 
 {% block title %}
 
-Лучшие посты аристократов русской литературы
+  {{ group.title }}
 
 {% endblock%}
 
 {% block content %} 
-  <h2> Записи сообщества </h2>
+  <h2> Записи сообщества {{ group.title }} </h2>
   <p>{{ group.description }}</p>
-{% for post in posts %}
-  <article>
-    <ul>
-      <li>
-        Автор: {{ post.author.get_full_name }}
-      </li>
-      <li>
-        Дата публикации: {{ post.pub_date|date:'d E Y' }}
-      </li>
-    </ul>
-    <p>{{ post.text|linebreaksbr }}</p>
-  </article>  
-{% if not forloop.last %}
-  <hr>
-{% endif %}
-{% endfor %}
+  {% include 'includes/article.html' %}
 {% endblock %}
