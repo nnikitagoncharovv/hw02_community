@@ -9,5 +9,7 @@
 {% block content %} 
   <h2> Записи сообщества {{ group.title }} </h2>
   <p>{{ group.description }}</p>
-  {% include 'includes/article.html' %}
+  {% for post in posts %}
+    {% include 'includes/article.html' %}
+  {% endfor %}
 {% endblock %}

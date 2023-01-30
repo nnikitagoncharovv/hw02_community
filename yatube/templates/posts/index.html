@@ -8,5 +8,7 @@
 
 {% block content %}  
   <h2> Последние обновления на сайте </h2> 
-  {% include 'includes/article.html' %}
+  {% for post in posts %}
+    {% include 'includes/article.html' %}
+  {% endfor %}
 {% endblock %}
