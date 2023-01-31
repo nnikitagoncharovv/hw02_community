@@ -6,8 +6,8 @@ NUMBER_OF_POSTS_PER_PAGE = 10
 
 
 def index(request):
-    posts = Post.objects.select_related('author',
-                                        'group')[:NUMBER_OF_POSTS_PER_PAGE]
+    posts = Post.objects.select_related(
+        'author', 'group')[:NUMBER_OF_POSTS_PER_PAGE]
     context = {
         'posts': posts,
     }
